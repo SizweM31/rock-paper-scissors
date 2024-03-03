@@ -1,0 +1,19 @@
+<script>
+    //create function that gives us the computer's choice
+    function getComputerChoice() {
+        //generate random number between 1 and 3
+        //assign number to variable
+        let number = Math.floor(Math.random()*3) + 1;
+        let answer = "";
+        //return string (rock/paper/scissors) based on number in variable
+        if (number === 1){
+            answer = "Rock";
+        } else if (number === 2){
+            answer = "Paper";
+        } else {
+            answer = "Scissors";
+        }
+
+        return answer;
+    }
+</script>
