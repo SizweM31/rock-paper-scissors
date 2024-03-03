@@ -7,13 +7,44 @@
         let answer = "";
         //return string (rock/paper/scissors) based on number in variable
         if (number === 1){
-            answer = "Rock";
+            answer = "rock";
         } else if (number === 2){
-            answer = "Paper";
+            answer = "paper";
         } else {
-            answer = "Scissors";
+            answer = "scissors";
         }
 
         return answer;
     }
+
+    //create function that takes two parameters  (player and computer)
+    function playRound(playerSelection, computerSelection){
+        //ensure player selection is case insensitive
+        let playerChoice = playerSelection.toLowerCase();
+        
+        //compare player selection with computer selection, return winner
+        if (playerChoice === computerSelection) {
+            return "Game is tied!";
+        } else if (computerSelection === "rock" && playerChoice === "paper") {
+            return "You win! Paper beats Rock.";
+        } else if (computerSelection === "rock" && playerChoice === "scissors") {
+            return "You lose! Rock beats Scissors";
+        } else if (computerSelection === "paper" && playerChoice === "rock") {
+            return "You lose! Paper beats rock.";
+        } else if (computerSelection === "paper" && playerChoice === "scissors") {
+            return "You win! Scissors beat Paper.";
+        } else if (computerSelection === "scissors" && playerChoice === "paper") {
+            return "You lose! Scissors beat Paper.";
+        } else if (computerSelection === "scissors" && playerChoice === "rock") {
+            return "You win! Rock beats scissors.";
+        } else {
+            return "Invalid input";
+        }
+    }
+
+    const playerSelection = "paper";
+    const computerSelection = getComputerChoice();
+    
+    console.log(playRound(playerSelection, computerSelection));
+        
 </script>
