@@ -13,14 +13,13 @@
         } else {
             answer = "scissors";
         }
-
         return answer;
     }
 
     //create function that takes two parameters  (player and computer)
-    function playRound(playerSelection, computerSelection){
+    function playRound(computerSelection, playerSelect = prompt("What's your choice (Rock/Paper/Scissors)? ")){
         //ensure player selection is case insensitive
-        let playerChoice = playerSelection.toLowerCase();
+        let playerChoice = playerSelect.toLowerCase();
         
         //compare player selection with computer selection, return winner
         if (playerChoice === computerSelection) {
@@ -42,9 +41,60 @@
         }
     }
 
-    const playerSelection = "paper";
-    const computerSelection = getComputerChoice();
+    console.log(playRound(getComputerChoice()));
+
     
-    console.log(playRound(playerSelection, computerSelection));
-        
+    // function playGame(userChoice, computer) {
+    //     //convert player and computer input
+    //     let i;
+    //     for (i = 1; i <= 5; i++) {
+    //         playRound(player, getComputerChoice());
+            
+    //     }
+    // }
+    
+    // function playGame(){
+    //     //play a 5 round game using playRound() function
+    //     //get user input for each round (prompt)
+    //     //keep scores for each round
+
+    //     let score_player;
+    //     let score_computer;
+    //     let i;
+    //     let finalScore;
+    //     let output;
+    //     //game has 5 scored rounds
+    //     for (i = 1; i <= 5; i++) {
+    //         score_computer = 0;
+    //         score_player = 0;
+    //         //get user input for game
+    //         let play = prompt("What's your choice (Rock/Paper/Scissors)? ");
+    //         //display results for each round
+    //         let roundDisplay = `Round ${i}: `;
+    //         console.log(roundDisplay);
+
+    //         console.log(playRound(play, getComputerChoice()));
+    //         output = playRound(play, getComputerChoice())
+    //         //keep score based on playRound() output
+    //         //if output is win, increment player score
+    //         //if output is lose, increment computer score
+    //         //if output is a tie, do not change score
+    //         if (output === "You win! Paper beats Rock."){
+    //            return ++score_player;
+    //         } else if(output ==="You win! Rock beats scissors.") {
+    //             return ++score_player;
+    //         } else if (output ==="You win! Scissors beat Paper."){
+    //             return ++score_player;
+    //         } else if (output ==="You lose! Paper beats rock."){
+    //             return ++score_computer;
+    //         } else  if (output ==="You lose! Rock beats Scissors"){
+    //             return ++score_computer;
+    //         } else if (output ==="You lose! Scissors beat Paper.") {
+    //             return ++score_computer;
+    //         }
+    //         console.log(score_computer);
+    //         console.log(score_player);
+    //     }
+    // }
+    // playGame();
 </script>
