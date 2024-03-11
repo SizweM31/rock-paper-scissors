@@ -41,60 +41,57 @@
         }
     }
 
-    console.log(playRound(getComputerChoice()));
+    // console.log(playRound(getComputerChoice()));
 
     
-    // function playGame(userChoice, computer) {
-    //     //convert player and computer input
-    //     let i;
-    //     for (i = 1; i <= 5; i++) {
-    //         playRound(player, getComputerChoice());
-            
-    //     }
-    // }
+    function playGame() {
+        //declare local function variables
+        let score_computer = 0;
+        let score_player = 0;
+        let i = 1
+        let output;
+        let finalScore;
+        let roundDisplay
+
+        for (; i <= 5; i++) {
+            //Call playRound function to play game, for loop helps game to iterate 5 times
+            output = playRound(getComputerChoice());    
+
+            //display results for each round
+            roundDisplay = `Round ${i}: `;
+            console.log(roundDisplay);
+            console.log(output);
+
+            //keep score based on playRound() output
+            //if output is win, increment player score
+            //if output is lose, increment computer score
+            //if output is a tie, do not change score
+            if (output === "You win! Paper beats Rock."){
+                ++score_player;
+            } else if(output ==="You win! Rock beats scissors."){
+                ++score_player;
+                console.log("Stop!");
+            } else if (output ==="You win! Scissors beat Paper."){
+                ++score_player;
+            } else if (output ==="You lose! Paper beats rock."){
+                ++score_computer;
+            } else  if (output ==="You lose! Rock beats Scissors"){
+                ++score_computer;
+            } else if (output ==="You lose! Scissors beat Paper.") {
+                ++score_computer;
+            }
+        }
+        //Check who the winner is based on points accumulated
+        if (score_player > score_computer){
+            finalScore = `Player vs Computer: ${score_player} : ${score_computer} \n Congratulations you won the game!`;
+            console.log(finalScore);
+        } else if (score_computer > score_player){
+            finalScore = `Player vs Computer: ${score_player} : ${score_computer} \n You Lost the game!`;
+            console.log(finalScore); 
+        } else {
+            console.log("Game tied");
+        }
+    }
     
-    // function playGame(){
-    //     //play a 5 round game using playRound() function
-    //     //get user input for each round (prompt)
-    //     //keep scores for each round
-
-    //     let score_player;
-    //     let score_computer;
-    //     let i;
-    //     let finalScore;
-    //     let output;
-    //     //game has 5 scored rounds
-    //     for (i = 1; i <= 5; i++) {
-    //         score_computer = 0;
-    //         score_player = 0;
-    //         //get user input for game
-    //         let play = prompt("What's your choice (Rock/Paper/Scissors)? ");
-    //         //display results for each round
-    //         let roundDisplay = `Round ${i}: `;
-    //         console.log(roundDisplay);
-
-    //         console.log(playRound(play, getComputerChoice()));
-    //         output = playRound(play, getComputerChoice())
-    //         //keep score based on playRound() output
-    //         //if output is win, increment player score
-    //         //if output is lose, increment computer score
-    //         //if output is a tie, do not change score
-    //         if (output === "You win! Paper beats Rock."){
-    //            return ++score_player;
-    //         } else if(output ==="You win! Rock beats scissors.") {
-    //             return ++score_player;
-    //         } else if (output ==="You win! Scissors beat Paper."){
-    //             return ++score_player;
-    //         } else if (output ==="You lose! Paper beats rock."){
-    //             return ++score_computer;
-    //         } else  if (output ==="You lose! Rock beats Scissors"){
-    //             return ++score_computer;
-    //         } else if (output ==="You lose! Scissors beat Paper.") {
-    //             return ++score_computer;
-    //         }
-    //         console.log(score_computer);
-    //         console.log(score_player);
-    //     }
-    // }
-    // playGame();
+    playGame();
 </script>
